@@ -14,6 +14,8 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
+                backgroundColor: dark ? Colors.white : Colors.black,
+
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
