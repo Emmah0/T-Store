@@ -13,13 +13,15 @@ class TSearchContainer extends StatelessWidget {
     this.showBackground = true , 
     this.showBorder= true,
     this.onTap,
+    this.padding = const  EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
-  final bool showBackground, showBorder;
   final VoidCallback? onTap;
-
+  final bool showBackground, showBorder;
+  final EdgeInsetsGeometry padding;
+  
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);

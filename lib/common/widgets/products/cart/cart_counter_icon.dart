@@ -15,8 +15,8 @@ final VoidCallback onPressed;
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        IconButton(onPressed: () {}, icon:  const Icon(Iconsax.shopping_bag,
-    color: TColors.white,)),
+        IconButton(onPressed: () {}, icon:  Icon(Iconsax.shopping_bag,
+    color: iconColor,)),
     Positioned(
       right: 0,
       child: Container(

@@ -4,8 +4,9 @@ import 'package:t_store/common/styles/shadows.dart';
 import 'package:t_store/common/widgets/icons/t_circular_icons.dart';
 import 'package:t_store/common/widgets/images/t_rounded_container.dart';
 import 'package:t_store/common/widgets/images/t_rounded_image.dart';
-import 'package:t_store/common/widgets/products/product_price_text.dart';
+import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/product_little_text.dart';
+import 'package:t_store/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -66,20 +67,22 @@ class TProductCardVertical extends StatelessWidget {
               children: [
                TProductTitleText(title: 'Green Nike Air Shoes', smallSize: true,),
                SizedBox(height: TSizes.spaceBtwItems / 2),
-               Row(
-                children: [
-                  Text('Nike', overflow: TextOverflow.ellipsis, maxLines: 1,
-                  style: Theme.of(context).textTheme.labelMedium),
-                  const SizedBox(width: TSizes.xs,),
-                  const Icon(Iconsax.verify5, color: TColors.primary,
-                  size: TSizes.iconXs,)
-                ],
-               ),
-               Row(
+               TBrandTitleWithVerifiedIcon(title: 'Nike',),
+              ],
+            ),
+            ),
+            // Todo: Add Spacer() here to keep the height of each Box same in case 1 or 2 line of headings
+            const Spacer(),
+            /// Price Row
+            Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   /// Price
-                  const TProductPriceText(price:'\$35.0'),
+                  const Padding(
+                     padding:  EdgeInsets.only(left: TSizes.sm),
+                     child: TProductPriceText(price:'35.0'),
+                   ),
+                   /// Add to cart Button
                   Container(
                     decoration: const BoxDecoration(
                       color: TColors.dark,
@@ -91,16 +94,14 @@ class TProductCardVertical extends StatelessWidget {
                     child: const SizedBox(
                       width: TSizes.iconLg *1.2,
                       height: TSizes.iconLg *1.2,
-                      child:  Center(child: Icon(Iconsax.add, color: TColors.white))),
+                      child:  Center(child: Icon(Iconsax.add, color: TColors.white)),
+                      ),
                   )
                 ],
-               )
-              ],
-            ),)
+               ),
           ]
         ),
       ),
     );
   }
 }
-

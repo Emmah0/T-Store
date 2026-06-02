@@ -13,7 +13,7 @@ class THomeCategories extends StatelessWidget {
     return SizedBox(
       height: 80,
       child: ListView.builder(
-        shrinkWrap: true,
+        //shrinkWrap: true,
         itemCount: 6,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
