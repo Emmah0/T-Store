@@ -32,12 +32,14 @@ class HomeScreen extends StatelessWidget {
              child: Column(
              children: [
               TSectionHeading(title: 'Popular Categories', showActionButton: false,  textColor: Colors.white,),
-              const SizedBox(height: TSizes.spaceBtwItems,),
+               SizedBox(height: TSizes.spaceBtwItems,),
 
               ///categories
               THomeCategories(),
              ],
-             ),)
+             ),
+             ),
+               SizedBox(height: TSizes.spaceBtwSections,),
             ],
             ),
         ),
