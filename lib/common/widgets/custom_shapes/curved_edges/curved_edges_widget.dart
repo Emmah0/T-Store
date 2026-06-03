@@ -3,8 +3,8 @@ import 'package:t_store/common/widgets/custom_shapes/container/circular_containe
 import 'package:t_store/common/widgets/custom_shapes/curved_edges/custom_edges.dart';
 import 'package:t_store/utils/constants/colors.dart';
 
-class TCurvedEdgeWidget extends StatelessWidget {
-  const TCurvedEdgeWidget({
+class TCurvedEdgesWidget extends StatelessWidget {
+  const TCurvedEdgesWidget({
     super.key, required this.child,
   });
 final Widget child;

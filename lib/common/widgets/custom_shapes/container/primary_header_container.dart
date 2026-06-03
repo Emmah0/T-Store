@@ -12,7 +12,7 @@ final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return TCurvedEdgeWidget(
+    return TCurvedEdgesWidget(
         child: Container(
         color: TColors.primary,
         
