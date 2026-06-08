@@ -18,8 +18,8 @@ final VoidCallback? onPressed;
       width: 50,
       height: 50,
       padding: 0,) ,
-      title: Text('Feranmi Emmanuel', style: Theme.of(context). textTheme.headlineSmall!. apply(color: TColors.white),),
-      subtitle: Text('support@emmah.com', style: Theme.of(context). textTheme.headlineMedium!. apply(color: TColors.white),),
+      title: Text('Feranmi Emmanuel', style: Theme.of(context). textTheme.headlineMedium!. apply(color: TColors.white),),
+      subtitle: Text('support@emmah.com', style: Theme.of(context). textTheme.headlineSmall!. apply(color: TColors.white),),
       trailing: IconButton( icon: const Icon(Iconsax.edit, color: TColors.white,), onPressed: onPressed,),
     );
   }

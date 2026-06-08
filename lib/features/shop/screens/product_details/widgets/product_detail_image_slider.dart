@@ -46,7 +46,7 @@ class TProductImageSlider extends StatelessWidget {
                 backgroundColor: dark? TColors.dark : TColors.white,
                 border: Border.all(color: TColors.primary),
                 padding: const EdgeInsets.all(TSizes.sm),
-                imageUrl: TImages.productImage3)),
+                imageUrl: TImages.productImage5)),
             ),
           ),
           /// Appbar Icons

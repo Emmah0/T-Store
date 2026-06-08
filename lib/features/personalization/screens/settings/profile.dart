@@ -7,12 +7,12 @@ import 'package:t_store/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:t_store/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
-import 'package:t_store/features/personalization/screens/profile/widgets/profile.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   //Account Settings
                  const TSectionHeading(
-                    title: 'Account Settings',
+                    title: 'Profile Settings',
                     showActionButton: false,
                   ),
                   const SizedBox(

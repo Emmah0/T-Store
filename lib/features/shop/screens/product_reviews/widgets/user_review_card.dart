@@ -21,7 +21,7 @@ class UserReviewCard extends StatelessWidget {
               children: [
                 CircleAvatar( backgroundImage: AssetImage(TImages.userProfileImage1),),
                const SizedBox(width: TSizes.spaceBtwItems,),
-               Text('John Doe', style: Theme.of(context).textTheme.titleLarge,),
+               Text('Feranmi Emmanuel', style: Theme.of(context).textTheme.titleLarge,),
               ],
             ),
             IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),

@@ -33,7 +33,7 @@ final bool selectedAddress;
           ),
           Column( crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('John Doe', maxLines: 1,
+              Text('Feranmi Emmanuel', maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.titleLarge,),
 
