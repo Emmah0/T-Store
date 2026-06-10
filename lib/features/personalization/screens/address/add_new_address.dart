@@ -9,7 +9,7 @@ class AddNewAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppbar(showBackArrow: true, title: Text('Add new Address'),),
+      appBar: const TAppBar(showBackArrow: true, title: Text('Add new Address'),),
       body: SingleChildScrollView(
         child: Padding(padding: const EdgeInsets.all(TSizes.defaultSpace),
        child: Form(

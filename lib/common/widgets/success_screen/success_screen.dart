@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/styles/spacing_styles.dart';
-import 'package:t_store/features/authentication/screens/login/login.dart';
+import 'package:t_store/navigation_menu.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key, required this.image, 
-  required this.title, required this.subtitle,  required this.onPressed});
- final String image, title, subtitle;
+  required this.title, required this.subTitle,  required this.onPressed, });
+ final String image, title, subTitle;
 final VoidCallback? onPressed;
 
   @override
@@ -31,14 +31,14 @@ final VoidCallback? onPressed;
 
               const SizedBox(height: TSizes.spaceBtwItems,),
 
-              Text(subtitle, 
+              Text(subTitle, 
               style: Theme.of(context).textTheme.labelMedium, 
               textAlign: TextAlign.center,),
               const SizedBox(height: TSizes.spaceBtwSections,), 
 
               /// Buttons
               SizedBox(width: double.infinity,
-            child: ElevatedButton(onPressed: ()=> Get.to(() => const LoginScreen()), 
+            child: ElevatedButton(onPressed: ()=> Get.to(() => const NavigationMenu()), 
             child: const Text(TTexts.tContinue)),),
             ],
           ),

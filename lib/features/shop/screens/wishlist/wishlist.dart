@@ -14,7 +14,7 @@ class FavouriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TAppbar(
+      appBar: TAppBar(
         title: Text('Wishlist', style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           TCircularIcon(icon: Iconsax.add, onPressed: () => Get.offAll(const NavigationMenu())),

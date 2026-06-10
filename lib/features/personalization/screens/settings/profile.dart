@@ -7,6 +7,7 @@ import 'package:t_store/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:t_store/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
+import 'package:t_store/features/shop/screens/order/order.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
@@ -26,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
               children: [
 
                 /// App Bar
-                TAppbar(title: Text('Account',style: Theme.of(context)
+                TAppBar(title: Text('Account',style: Theme.of(context)
                 .textTheme.headlineMedium!.apply(color: TColors.white)),
                 ),
 
@@ -61,10 +62,11 @@ class ProfileScreen extends StatelessWidget {
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart',
                       subTitle: 'Add, remove products and move to checkout'),
-                 const TSettingsMenuTile(
+                 TSettingsMenuTile(
                       icon: Iconsax.bag_tick,
                       title: 'My Orders',
-                      subTitle: 'In-progress and Completed Orders'),
+                      subTitle: 'In-progress and Completed Orders',
+                      onTap: () => Get.to(() => const OrderScreen()),),
                 const  TSettingsMenuTile(
                       icon: Iconsax.bank,
                       title: 'Bank Account',

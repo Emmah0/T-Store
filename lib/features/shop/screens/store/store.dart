@@ -19,7 +19,7 @@ class StoreScreen extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        appBar: TAppbar(
+        appBar: TAppBar(
           title: Text(
             'Store',
             style: Theme.of(context).textTheme.headlineMedium,

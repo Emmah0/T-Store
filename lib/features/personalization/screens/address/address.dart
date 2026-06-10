@@ -17,7 +17,7 @@ class UserAddressScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(onPressed: () => Get.to(() => const AddNewAddressScreen()),
       child: const Icon(Iconsax.add, color: TColors.white),
       ),
-      appBar: TAppbar(
+      appBar: TAppBar(
         showBackArrow: true,
         title: Text('Addresses', style: Theme.of(context). textTheme.headlineSmall),
       ),

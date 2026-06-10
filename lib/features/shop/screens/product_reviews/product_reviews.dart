@@ -12,7 +12,7 @@ class ProductReviewsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       /// Appbar
-      appBar: const TAppbar(title: Text('Reviews & Ratings',), showBackArrow: true,),
+      appBar: const TAppBar(title: Text('Reviews & Ratings',), showBackArrow: true,),
 
       ///Body
       body: SingleChildScrollView(

@@ -26,5 +26,5 @@ unselectedLabelColor: TColors.darkGrey,
  } // Material
 
 @override
-Size get preferredSize => Size.fromHeight(TDeviceUtils.getAppBarHeight());
+Size get preferredSize => Size.fromHeight(TDeviceUtils.geTAppBarHeight());
 }
