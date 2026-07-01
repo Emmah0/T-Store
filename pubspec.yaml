@@ -22,7 +22,7 @@ dependencies:
   carousel_slider: ^5.1.2
   flutter_native_splash: ^2.4.6
   smooth_page_indicator: ^2.0.1
-  connectivity_plus: ^7.1.1
+  connectivity_plus: ^5.0.1
   lottie: ^3.3.1 # OR RIVE
 
   # Icons
@@ -39,10 +39,12 @@ dependencies:
   capped_progress_indicator: ^0.0.2
 
   # Firebase
-  firebase_core: ^4.9.0
+  firebase_core: ^4.10.0
   firebase_auth: ^6.5.1
   cloud_firestore: ^6.4.1
   firebase_storage: ^13.4.1
+  google_sign_in: ^6.2.1
+  
 
 
 

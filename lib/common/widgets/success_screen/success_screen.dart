@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:t_store/common/styles/spacing_styles.dart';
 import 'package:t_store/navigation_menu.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
-import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key, required this.image, 
@@ -20,10 +20,11 @@ final VoidCallback? onPressed;
           padding: TSpacingStyle.paddingWithAppBarHeight * 2,
           child: Column(
             children: [
+              
              /// Image
-              Image(image: AssetImage(image),
-               width: THelperFunctions.screenWidth(context) * 0.6),
+              Lottie.asset(image,  width: MediaQuery.of(context).size.width *0.6),
                const SizedBox(height: TSizes.spaceBtwItems,),
+
               /// Title & Subtitle
               Text(title, 
               style: Theme.of(context).textTheme.headlineMedium, 

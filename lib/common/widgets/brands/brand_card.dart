@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/images/t_circular_image.dart';
 import 'package:t_store/common/widgets/images/t_rounded_container.dart';
 import 'package:t_store/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
+import 'package:t_store/features/shop/screens/brand/all_brands.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/enums.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
@@ -22,7 +24,7 @@ class TBrandCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-        onTap: onTap,
+        onTap:() => Get.to(()=> const AllBrandsScreen()),
 
         /// Container Design
         child: TRoundedContainer(

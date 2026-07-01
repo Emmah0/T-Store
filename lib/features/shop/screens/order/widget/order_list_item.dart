@@ -41,7 +41,7 @@ class TOrderListItems extends StatelessWidget {
                       apply(color: TColors.primary, fontWeightDelta: 1),
                       
                       ),
-                      Text('07 Nov 2024',
+                      Text('07 Nov 2026',
                       style: Theme.of(context).textTheme.headlineSmall),
                     ],
                   ),
@@ -103,7 +103,7 @@ class TOrderListItems extends StatelessWidget {
                             style: Theme.of(context).textTheme.labelMedium,
                             
                             ),
-                            Text('03 Feb 2025',
+                            Text('03 Feb 2026',
                             style: Theme.of(context).textTheme.titleMedium),
                           ],
                         ),

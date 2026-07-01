@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
-import 'package:t_store/common/widgets/products/sortable/sortable.dart';
+import 'package:t_store/common/widgets/products/sortable/sortable_products.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class AllProducts extends StatelessWidget {
