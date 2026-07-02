@@ -27,6 +27,7 @@ class UserController extends GetxController {
   final verifyPassword = TextEditingController();
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
 
+
   @override
   void onInit() {
     super.onInit();
@@ -45,6 +46,7 @@ class UserController extends GetxController {
       profileLoading.value = false;
     }
   }
+  
 
   /// save user record from any registeration provider
 
@@ -70,7 +72,8 @@ class UserController extends GetxController {
             lastName:
                 nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
             phoneNumber: userCredentials.user!.phoneNumber ?? '',
-            profilePicture: userCredentials.user!.photoURL ?? '');
+            profilePicture: userCredentials.user!.photoURL ?? ''
+            );
 
         //save user data
         await userRepository.saveUserRecord(user);
