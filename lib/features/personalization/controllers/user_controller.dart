@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/data/repositories/user/user_repository.dart';
 import 'package:t_store/features/authentication/models/user_model.dart';
@@ -12,13 +13,15 @@ import 'package:t_store/utils/helpers/network_manager.dart';
 import 'package:t_store/utils/popups/full_screen_loader.dart';
 import 'package:t_store/utils/popups/loaders.dart';
 
+
 class UserController extends GetxController {
   static UserController get instance => Get.find();
 
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
-  final userRepository = Get.put(UserRepository());
 
+  final userRepository = Get.put(UserRepository());
+  final imageUploading = false.obs;
   final hidePassword = true.obs;
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
@@ -47,6 +50,10 @@ class UserController extends GetxController {
 
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
+      // Firt Update RX user and then check if user data is already stored. If not store new data.
+      await fetchUserRecord();
+      // If no record already stored.
+      if (user.value.id.isEmpty){
       if (userCredentials != null) {
         // Convert name to first and last name
         final nameParts =
@@ -67,6 +74,7 @@ class UserController extends GetxController {
 
         //save user data
         await userRepository.saveUserRecord(user);
+      }
       }
     } catch (e) {
       TLoaders.warningSnackBar(
@@ -140,6 +148,7 @@ class UserController extends GetxController {
     }
   }
 
+/// [ReAuthenticate] - RE-AUTHENTICATE USER
   void reAutheticateEmailAndPasswordUser() async {
 
     try{
@@ -182,4 +191,30 @@ class UserController extends GetxController {
       
 
   }
+///  Upload profile Image
+Future<void> uploadUserProfilePicture() async{
+  try{ 
+  final image =  await ImagePicker().pickImage(source: ImageSource.gallery,imageQuality: 70,
+  maxHeight: 512, maxWidth: 512);
+  if(image != null){
+    imageUploading.value = true;
+
+    //Upload Image
+    final imageUrl = await userRepository.uploadImage('Users/Images/Profile/', image);
+    
+    // update User Image Record
+    Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+    await userRepository.updateSingleField(json);
+
+    user.value.profilePicture = imageUrl;
+    user.refresh();
+    TLoaders.successSnackBar(title: 'Congratulations', message: 'Your Profile Image has been updated');
+  }
+} catch (e){
+  TLoaders.errorSnackBar(title: 'OhSnap',  message: 'Something went wrong: $e');
 }
+finally {
+  imageUploading.value = false;
+}
+}
+  }

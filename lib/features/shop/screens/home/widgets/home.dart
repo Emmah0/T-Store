@@ -11,6 +11,7 @@ import 'package:t_store/features/shop/screens/home/widgets/home_categories.dart'
 import 'package:t_store/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,54 +22,81 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-        TPrimaryHeaderContainer(
-        child: Column(
-          children: [
-             THomeAppbar(),
-             const SizedBox(height: TSizes.spaceBtwSections,),
+            //header
+            const TPrimaryHeaderContainer(
+              child: Column(
+                children: [
+                  //appbar
+                  THomeAppBar(),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
 
-             TSearchContainer(text: 'Search in Store',),
-             const SizedBox(height: TSizes.spaceBtwSections,),
+                  //searchbar
+                  TSearchContainer(text: 'Search in Store'),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
 
-             Padding(padding: EdgeInsets.only(left: TSizes.defaultSpace),
-             child: Column(
-             children: [
-              TSectionHeading(title: 'Popular Categories', showActionButton: false,  textColor: Colors.white,),
-               SizedBox(height: TSizes.spaceBtwItems,),
+                  //categories
+                  Padding(
+                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
+                    child: Column(
+                      children: [
+                        //heading
+                        TSectionHeading(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textColor: Colors.white,
+                        ),
+                        SizedBox(
+                          height: TSizes.spaceBtwItems,
+                        ),
 
-              ///categories
-              THomeCategories(),
-             ],
-             ),
-             ),
-               SizedBox(height: TSizes.spaceBtwSections,),
-            ],
+                        //categories
+                        THomeCategories()
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: TSizes.spaceBtwSections,)
+                ],
+              ),
             ),
-        ),
-        ///Body
-        Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
-          child: Column(
-            children: [
-              /// Promo Slider
-              TPromoSlider(banners: [TImages.promoBanner1,
-              TImages.promoBanner2,TImages.promoBanner3],),
-              const SizedBox(height: TSizes.spaceBtwSections,),
 
-              /// Heading
-               TSectionHeading(title: 'Popular Products', onPressed:() => Get.to(() => const AllProducts())),
-               const SizedBox(height: TSizes.spaceBtwItems),
+            //body
+            Padding(
+                padding: const EdgeInsets.all(TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    //promo slider
+                    const TPromoSlider(
+                      banners: [
+                        TImages.promoBanner1,
+                        TImages.promoBanner2,
+                        TImages.promoBanner3,
+                      ],
+                    ),
 
-               /// Popular Products
-             TGridLayout(itemCount: 2, itemBuilder: 
-        (_, index)=> const TProductCardVertical()),
-            ],
-          ),
-        ),
-        /// Popular Products
-       
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+
+                     TSectionHeading(
+                          title: 'Popular Products',
+                          textColor: THelperFunctions.isDarkMode(context) ? Colors.white : Colors.black,
+                          onPressed: ()=> Get.to(()=>const AllProducts()),
+                        ),
+
+                        const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+
+                    //popular products
+                    TGridLayout(itemCount: 4, itemBuilder: (_ , index ) => const TProductCardVertical(),),
+                   
+                  ],
+                ))
           ],
-          
         ),
       ),
     );

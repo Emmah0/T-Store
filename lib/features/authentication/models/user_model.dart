@@ -3,8 +3,13 @@ import 'package:t_store/utils/formatters/formatter.dart';
 
 class UserModel {
   // Keep those values final which you do not want to update
-  final String id, username, email;
- String firstName, lastName, phoneNumber, profilePicture;
+  final String id, 
+  username, 
+  email;
+ String firstName,
+  lastName, 
+  phoneNumber, 
+  profilePicture;
 
 /// Constructor for UserModel.
   UserModel({
