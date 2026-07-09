@@ -7,6 +7,7 @@ import 'package:t_store/common/widgets/images/t_rounded_image.dart';
 import 'package:t_store/common/widgets/texts/product_little_text.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
 import 'package:t_store/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/product_detail.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
@@ -21,7 +22,8 @@ class TProductCardHorizontal extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreeen()),
+      onTap: () =>
+          Get.to(() => ProductDetailScreen(product: ProductModel.empty())),
       child: Container(
           width: 310,
           padding: const EdgeInsets.all(1),
@@ -47,13 +49,14 @@ class TProductCardHorizontal extends StatelessWidget {
                           imageUrl: TImages.productImage1,
                           applyImageRadius: true,
                         )),
-      
+
                     //sale tag
                     Positioned(
                       top: 12,
                       child: TRoundedContainer(
                         radius: TSizes.sm,
-                        backgroundColor: TColors.secondary.withValues(alpha: 0.8),
+                        backgroundColor:
+                            TColors.secondary.withValues(alpha: 0.8),
                         padding: const EdgeInsets.symmetric(
                             horizontal: TSizes.sm, vertical: TSizes.xs),
                         child: Text(
@@ -65,7 +68,8 @@ class TProductCardHorizontal extends StatelessWidget {
                         ),
                       ),
                     ),
-                    //favorite icon button
+
+//favorite icon button
                     const Positioned(
                         top: 0,
                         right: 0,
@@ -80,8 +84,8 @@ class TProductCardHorizontal extends StatelessWidget {
               SizedBox(
                 width: 172,
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: TSizes.sm, left: TSizes.sm),
+                  padding:
+                      const EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
                   child: Column(
                     children: [
                       const Column(
@@ -103,16 +107,15 @@ class TProductCardHorizontal extends StatelessWidget {
                         children: [
                           //pricing
                           const Flexible(
-                              child:
-                                  TProductPriceText(price: '256.0')),
-              
+                              child: TProductPriceText(price: '256.0')),
+
                           //add to cart button
                           Container(
                             decoration: const BoxDecoration(
                                 color: TColors.dark,
                                 borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(
-                                        TSizes.cardRadiusMd),
+                                    topLeft:
+                                        Radius.circular(TSizes.cardRadiusMd),
                                     bottomRight: Radius.circular(
                                         TSizes.productImageRadius))),
                             child: const SizedBox(

@@ -4,51 +4,62 @@ import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/shop/models/category_model.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class TCategoryTab extends StatelessWidget {
-  const TCategoryTab({super.key, required CategoryModel category});
+  const TCategoryTab({
+    super.key,
+    required this.category,
+  });
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          children: [
-            /// Brands
-            const TBrandShowcase(
-              images: [
-                TImages.productImage3,
-                TImages.productImage2,
-                TImages.productImage1
+    return ListView(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            child: Column(
+              children: [
+                //brands
+
+                const TBrandShowcase(
+                  images: [
+                    TImages.productImage1,
+                    TImages.productImage2,
+                    TImages.productImage3,
+                  ],
+                ),
+
+                const SizedBox(
+                  height: TSizes.spaceBtwItems,
+                ),
+
+                //products
+                TSectionHeading(
+                  title: 'You might like',
+                  showActionButton: true,
+                  onPressed: () {},
+                ),
+                const SizedBox(
+                  height: TSizes.spaceBtwItems,
+                ),
+
+                TGridLayout(
+                    itemCount: 4,
+                    itemBuilder: (_, index) =>
+                        TProductCardVertical(product: ProductModel.empty())),
+                const SizedBox(
+                  height: TSizes.spaceBtwSections,
+                ),
               ],
             ),
-            const TBrandShowcase(
-              images: [
-                TImages.productImage3,
-                TImages.productImage2,
-                TImages.productImage1
-              ],
-            ),
-            const SizedBox(
-              height: TSizes.spaceBtwItems,
-            ),
-      
-            /// Products
-            TSectionHeading(title: 'You might like', onPressed: () {}),
-            const SizedBox(height: TSizes.spaceBtwItems),
-      
-            TGridLayout(
-                itemCount: 8,
-                itemBuilder: (_, index) => const TProductCardVertical()),
-            const SizedBox(
-              height: TSizes.spaceBtwSections,
-            )
-          ],
-        ),
-      ),
-    );
+          ),
+        ]);
   }
 }

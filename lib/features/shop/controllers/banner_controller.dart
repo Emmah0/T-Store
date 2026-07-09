@@ -1,5 +1,3 @@
-
-
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/banners/banner_repository.dart';
 import 'package:t_store/features/shop/models/banner_model.dart';
@@ -12,13 +10,20 @@ class BannerController extends GetxController{
   final carouselCurrentIndex = 0.obs;
   final RxList<BannerModel> banners = <BannerModel>[].obs;
 
+
+  @override 
+  void onInit() {
+    fetchBanners();
+    super.onInit();
+  }
+
 // Update Page Navigational Dots
   void updatePageIndicator(int index) {
     carouselCurrentIndex.value = index;
   }
   
   // Fetch Banners
-Future<void> fetchCategories() async {
+Future<void> fetchBanners() async {
   try {
     // Show loader while loading categories
     isLoading.value = true;
